@@ -6,13 +6,17 @@ models:
     columns:
       - name: emp_id
         data_tests:
-        - unique
-        - not_null
-        - accepted_values:
-            arguments:
-              values: ['1','2','3','4','5']
-              config:
-                severity: warn
+          - unique
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['1','2','3','4','5']
+                config:
+                  severity: warn
+      - name: emp_salary
+        data_tests:
+          - salary_check
+
             
 
 sources:
