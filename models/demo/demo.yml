@@ -13,6 +13,14 @@ sources:
     tables:
       - name: CUSTOMER_SRC
 
+  - name: sales_input # this is an arbitrary name grouping
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SALES_SRC # it is matching the actual Snowflake raw source name
+
+
+
 models:
   - name: employee
     description: "Employee DBT model"
@@ -32,5 +40,9 @@ models:
 
   - name: customer
     description: "DBT Model for the customer table"
-   name: customer_vw
-    description: "DBT Model for the customer view"    
+  
+  - name: customer_vw
+    description: "DBT Model for the customer view"  
+  
+  - name: sales #dbt will take it from the demo .sql file. Can be overwriten but nobody does.
+    description: "DBT Model for the sales table"   
