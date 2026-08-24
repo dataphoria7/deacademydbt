@@ -1,5 +1,18 @@
 version: 2
 
+sources:
+  - name: employee
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: EMPLOYEE_RAW
+
+  - name: customer
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: CUSTOMER_SRC
+
 models:
   - name: employee
     description: "Employee DBT model"
@@ -17,11 +30,7 @@ models:
         data_tests:
           - salary_check
 
-            
-
-sources:
-  - name: employee
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: EMPLOYEE_RAW
+  - name: customer
+    description: "DBT Model for the customer table"
+   name: customer_vw
+    description: "DBT Model for the customer view"    
