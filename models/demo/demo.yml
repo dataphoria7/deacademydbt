@@ -30,6 +30,12 @@ sources:
     schema: PUBLIC
     tables:
       - name: PURCHASE_SRC # it is matching the actual Snowflake raw source name
+  
+  - name: clean_orders
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: BASE_ORDERS # it is matching the actual Snowflake raw source name
 
 models:
   - name: employee
@@ -62,3 +68,6 @@ models:
 
   - name: purchase 
     description: "DBT Model for the purchase table" 
+  
+  - name: clean_orders 
+    description: "DBT ephemeral Model for the clean orders" 
