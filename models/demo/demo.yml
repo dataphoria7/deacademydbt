@@ -18,8 +18,8 @@ sources:
     schema: PUBLIC
     tables:
       - name: SALES_SRC # it is matching the actual Snowflake raw source name
-  
-  - name: product 
+
+  - name: product
     database: DBT_DB
     schema: PUBLIC
     tables:
@@ -30,12 +30,18 @@ sources:
     schema: PUBLIC
     tables:
       - name: PURCHASE_SRC # it is matching the actual Snowflake raw source name
-  
+
   - name: clean_orders
     database: DBT_DB
     schema: PUBLIC
     tables:
       - name: BASE_ORDERS # it is matching the actual Snowflake raw source name
+
+  - name: patient_snapshot # I am choosing to name it as the .sql file I created in the snapshot folder
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC # it is matching the actual Snowflake raw source name
 
 models:
   - name: employee
@@ -47,7 +53,7 @@ models:
           - not_null
           - accepted_values:
               arguments:
-                values: ['1','2','3','4','5']
+                values: ["1", "2", "3", "4", "5"]
                 config:
                   severity: warn
       - name: emp_salary
@@ -56,18 +62,21 @@ models:
 
   - name: customer
     description: "DBT Model for the customer table"
-  
-  - name: customer_vw
-    description: "DBT Model for the customer view"  
-  
-  - name: sales #dbt will take it from the demo .sql file. Can be overwriten but nobody does.
-    description: "DBT Model for the sales table"   
-  
-  - name: product 
-    description: "DBT Model for the products table"  
 
-  - name: purchase 
-    description: "DBT Model for the purchase table" 
-  
-  - name: clean_orders 
-    description: "DBT ephemeral Model for the clean orders" 
+  - name: customer_vw
+    description: "DBT Model for the customer view"
+
+  - name: sales #dbt will take it from the demo .sql file. Can be overwriten but nobody does.
+    description: "DBT Model for the sales table"
+
+  - name: product
+    description: "DBT Model for the products table"
+
+  - name: purchase
+    description: "DBT Model for the purchase table"
+
+  - name: clean_orders
+    description: "DBT ephemeral Model for the clean orders"
+
+  - name: final_orders
+    description: "DBT Model for the final orders"
