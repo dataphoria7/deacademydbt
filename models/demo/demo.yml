@@ -1,48 +1,5 @@
 version: 2
 
-sources:
-  - name: employee
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: EMPLOYEE_RAW
-
-  - name: customer
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: CUSTOMER_SRC
-
-  - name: sales_input #this is arbitrary name grouping
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: SALES_SRC # it is matching the actual Snowflake raw source name
-
-  - name: product
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: PRODUCT_SRC # it is matching the actual Snowflake raw source name
-
-  - name: purchase
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: PURCHASE_SRC # it is matching the actual Snowflake raw source name
-
-  - name: clean_orders
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: BASE_ORDERS # it is matching the actual Snowflake raw source name
-
-  - name: patient_snapshot # I am choosing to name it as the .sql file I created in the snapshot folder
-    database: DBT_DB
-    schema: PUBLIC
-    tables:
-      - name: PATIENT_SRC # it is matching the actual Snowflake raw source name
-
 models:
   - name: employee
     description: "Employee DBT model"
@@ -66,7 +23,7 @@ models:
   - name: customer_vw
     description: "DBT Model for the customer view"
 
-  - name: sales #dbt will take it from the demo .sql file. Can be overwriten but nobody does.
+  - name: sales
     description: "DBT Model for the sales table"
 
   - name: product
@@ -80,3 +37,55 @@ models:
 
   - name: final_orders
     description: "DBT Model for the final orders"
+
+  - name: session
+    description: "DBT Model for the session table"
+
+sources:
+  - name: employee
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: EMPLOYEE_RAW
+
+  - name: customer
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: CUSTOMER_SRC
+
+  - name: sales_input
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SALES_SRC
+
+  - name: product
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC
+
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC
+
+  - name: clean_orders
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: BASE_ORDERS
+
+  - name: patient_snapshot
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PATIENT_SRC
+
+  - name: session
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: SESSION_SRC
