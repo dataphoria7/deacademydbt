@@ -18,7 +18,12 @@ sources:
     schema: PUBLIC
     tables:
       - name: SALES_SRC # it is matching the actual Snowflake raw source name
-
+  
+  - name: product # this is an arbitrary name grouping
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PRODUCT_SRC # it is matching the actual Snowflake raw source name
 
 
 models:
@@ -46,3 +51,6 @@ models:
   
   - name: sales #dbt will take it from the demo .sql file. Can be overwriten but nobody does.
     description: "DBT Model for the sales table"   
+  
+  - name: product 
+    description: "DBT Model for the products table"  
