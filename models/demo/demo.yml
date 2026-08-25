@@ -13,18 +13,23 @@ sources:
     tables:
       - name: CUSTOMER_SRC
 
-  - name: sales_input # this is an arbitrary name grouping
+  - name: sales_input #this is arbitrary name grouping
     database: DBT_DB
     schema: PUBLIC
     tables:
       - name: SALES_SRC # it is matching the actual Snowflake raw source name
   
-  - name: product # this is an arbitrary name grouping
+  - name: product 
     database: DBT_DB
     schema: PUBLIC
     tables:
       - name: PRODUCT_SRC # it is matching the actual Snowflake raw source name
 
+  - name: purchase
+    database: DBT_DB
+    schema: PUBLIC
+    tables:
+      - name: PURCHASE_SRC # it is matching the actual Snowflake raw source name
 
 models:
   - name: employee
@@ -54,3 +59,6 @@ models:
   
   - name: product 
     description: "DBT Model for the products table"  
+
+  - name: purchase 
+    description: "DBT Model for the purchase table" 
